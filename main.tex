@@ -267,4 +267,32 @@
 
 需要注意的是，盖尔圆盘估计对于行和估计与列和估计都是正确的，对于这个问题，使用列和估计则会出现圆盘有交的情况，不利于排除重根。
 
+\subsection{T7}
+
+\par $A=\begin{pmatrix}
+	1 & -1 & 1 & 1\\
+	-1 & 1 & -1 & -1\\
+	-1 & -1 & 1 & 1\\
+	1 & 1 & -1 & -1
+\end{pmatrix}$，则 $A$ 的满秩分解为 \underline{\phantom{empty\_space}}。
+
+\par \textbf{一种可行做法}：$\begin{pmatrix}
+	1 & 0\\
+	-1 & 0\\
+	0 & 1\\
+	0 & -1
+\end{pmatrix} \begin{pmatrix}
+	1 & -1 & 1 & 1\\
+	-1 & -1 & 1 & 1
+\end{pmatrix}$
+
+\par \textbf{理由}：先计算得到原矩阵的秩为 2，从 $A$ 中任取两个线性无关的行作为 $C$, 再反推出 $B$,即可得到一个分解 $A=BC$。也可以先从 $A$ 从任选两个线性无关的列作为 $B$，再反推出 $C$。
+
+\subsection{T8}
+
+\par 设 $A=\begin{pmatrix}
+	1 & 1\\
+	0 & a
+\end{pmatrix}, a\in \mathbb R$，若极限 $\lim_{k\to \infty}A^k$ 存在，则 $a$ 的取值范围是 \underline{\phantom{empty\_space}}。
+
 \end{document}
