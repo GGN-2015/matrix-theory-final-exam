@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{ctex}
+\usepackage{xcolor}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -15,6 +16,12 @@
 \section{声明}
 
 本答案由学生 GGN\_2015 自制，正确性并无保证。如果出现了谬误，欢迎联系 premierbob@qq.com 更正。本文题目为 2024 春季期末考试试题与考点分析，欢迎同学们一同分享学习的心得体会。本项目的 github 地址为：https://github.com/GGN-2015/matrix-theory-final-exam
+
+\newpage
+
+\tableofcontents
+
+\newpage
 
 \section{判断题}
 
@@ -93,7 +100,7 @@
 
 \par \textbf{理由}：首先， $R(A)$ 表示线性映射 $A$ 的值域（range），$N(A)$ 表示线性映射 $A$ 的核（kernel）。从概念上讲 $R(A)=\{Ax | x\in \mathbb C^n\}, N(A)=\{x\in \mathbb C^n|Ax=0\}$。不难验证上面的包含关系。
 
-\section{T5}
+\subsection{T5}
 
 \par 若 $A$ 是 $n$ 阶可逆复方阵，则 $\sin A$ 一定可逆。
 
@@ -101,12 +108,106 @@
 
 \par \textbf{理由}：$n$ 阶段复方阵可逆当且仅当不存在零特征值。设 $\lambda(A)=\{\lambda_1, \cdots, \lambda_n\}$，则根据特征值的遗传公式 $\lambda(\sin A)=\{\sin \lambda_1, \cdots, \sin \lambda_n\}$。即使 $\lambda_i$ 中没有零，但当某个 $\lambda_i=k\pi\;(k\neq 0)$ 时，$\sin A$ 也不可逆。
 
-\section{T6}
+\subsection{T6}
 
 \par 设 $T$ 是 $n$ 维欧氏空间 $V$ 的一个正交变换，则 $T$ 对应的矩阵一定是正交矩阵。
 
 \par \textbf{答案}：正确
 
-\par \textbf{理由}：正交矩阵的定义是 $AA^T=A^TA=I_n$。正交变换的定义是 $\forall x, y\in V, (A(x), A(y))=(x, y)$ 即保内积，即 $(Ax)^T(Ay)=x^T(A^TA)y=x^Ty$，总成立。由于 $x, y$ 的任意性，所以得到 $A^TA=I_n$。
+\par \textbf{理由}：正交矩阵的定义是 $AA^T=A^TA=I_n$。正交变换的定义是 $\forall x, y\in V, (A(x), A(y))=(x, y)$ 即保内积，即 $(Ay)^T(Ax)=y^T(A^TA)x=y^Tx$，总成立。由于 $x, y$ 的任意性，所以得到 $A^TA=I_n$。
+
+\subsection{T7}
+
+\par 设 $A、B$ 均是正规复矩阵，且 $AB=BA$，则 $AB$ 和 $BA$ 也均是正规矩阵。
+
+\par \textbf{答案}：正确
+
+\par \textbf{理由}：\textcolor{red}{留坑待补...}
+
+\subsection{T8}
+
+\par 设 $A$ 是 $n$ 阶复方阵，则 $\|A\|_2\leq \|A\|_F$。
+
+\par \textbf{答案}：正确
+
+\par \textbf{理由}：$\|A\|_2$ 是 矩阵 $A$ 的谱半径，即 $\sqrt{\sigma_{\text{max}}(A^HA)}$，可以证明，对于 $n$ 阶复方阵，谱半径是所有范数的下界。
+
+\subsection{T9}
+
+\par 设 $A=\begin{pmatrix}-1 & 1 & 0\\0 & -1 & 0\\0 & 0 &-1\end{pmatrix}$，则级数 $\sum_{k=1}^{\infty}\frac{1}{k^2}A^k$ 不绝对收敛。
+
+\par \textbf{答案}：正确
+
+\par \textbf{理由}：矩阵级数绝对收敛的条件是，谱半径小于级数收敛半径。$A$ 的谱半径为 1,级数的收敛半径也为 1，因此不绝对收敛。
+
+\subsection{T10}
+
+\par $\forall A\in \mathbb C^{n\times n}, x\in \mathbb C^n$，若向量范数 $\|x\|_v$ 与矩阵范数 $\|A\|_m$ 满足不等式 $\|Ax\|_v\geq \|A\|_m \|x\|_v$ 则称矩阵范数 $\|A\|_m$ 与向量范数 $\|x\|_v$ 相容。
+
+\par \textbf{答案}：错误
+
+\par \textbf{理由}：不等号方向不对，应当是 $\|Ax\|_v\leq \|A\|_m \|x\|_v$。
+
+\section{填空题}
+
+\subsection{T1}
+
+\par 设 $A=\begin{pmatrix}
+	1 & 2 & 1 & 0\\
+	1 & 1 & 1 & 1
+\end{pmatrix}, B = \begin{pmatrix}
+	2 & -1 & 0 & 1\\
+	1 & -1 & 3 & 7
+\end{pmatrix}$，$V_1, V_2$ 分别是齐次方程组 $Ax=0$ 和 $Bx=0$ 的解空间，则 $\dim(V_1\cap V_2)=\underline{\phantom{empty\_space}}$。
+
+\par \textbf{答案}：1
+
+\par \textbf{理由}：本质上就是求以下方程的解空间的维数：
+
+\begin{equation*}
+	\begin{pmatrix}
+		1 & 2 & 1 & 0\\
+		1 & 1 & 1 & 1\\
+		2 & -1 & 0 & 1\\
+		1 & -1 & 3 & 7
+	\end{pmatrix} \begin{pmatrix}
+		x_1\\x_2\\x_3\\x_4
+	\end{pmatrix}=0
+\end{equation*}
+
+\par 通过高斯消元，可以证明矩阵 $\begin{pmatrix}
+	1 & 2 & 1 & 0\\
+	1 & 1 & 1 & 1\\
+	2 & -1 & 0 & 1\\
+	1 & -1 & 3 & 7
+\end{pmatrix}$ 的秩为 3，因此 $\dim(V_1\cap V_2)=1$。
+
+\subsection{T2}
+
+\par 已知向量组 $\alpha_1, \alpha_2, \alpha_3$ 线性无关，若向量组 $\alpha_1+\alpha_2, \alpha_2+\alpha_3, \alpha_3+k\alpha_1$ 也线性无关，则 $k$ 应当满足 \underline{\phantom{empty\_space}}。
+
+\par \textbf{答案}：$k\neq -1$
+
+\par \textbf{理由}：只需要保证 $a(\alpha_1+\alpha_2) + b(\alpha_2+\alpha_3)+c(\alpha_1+k\alpha_3)=0$ 当且仅当 $a=b=c=0$。整理得到 $(a+ck)\alpha_1 + (a+b)\alpha_2 + (b+c)\alpha_3=0$ 当且仅当 $a=b=c=0$。由于 $\alpha_1, \alpha_2, \alpha_3$ 线性无关，因此得到 $(a+ck)\alpha_1 + (a+b)\alpha_2 + (b+c)\alpha_3=0$ 等价于 $a+ck=0$ 且 $a+b=0$ 且 $b+c=0$，因此我们只需要保证以下方程有唯一解：
+
+\begin{align*}
+	\begin{pmatrix}
+		1 & 0 & k\\
+		1 & 1 & 0\\
+		0 & 1 & 1
+	\end{pmatrix} \begin{pmatrix}
+		a\\b\\c
+	\end{pmatrix}=0
+\end{align*}
+
+保证上述矩阵满秩即可。
+
+\subsection{T3}
+
+\par 设 $M=I_n - ww^T, w=\frac{1}{\sqrt n}[ 1, 1, \cdots, 1]^T \in \mathbb R^n$, 则 $M$ 的行列式等于 \underline{\phantom{empty\_space}}。
+
+\par \textbf{答案}：0
+
+\par \textbf{理由}：换位公式对任意 $A_{n\times p}, B_{p\times n}$ 总有关于 $\lambda$ 的两个多项式 $\det(\lambda I_n - AB) \cdot \lambda^p \equiv \det(\lambda I_p - BA) \cdot \lambda^n $。带入 $\lambda = 1$ 得到 $\det(I_n - AB) = \det(I_p - BA)$， 令 $A=w, B=w^T, p=1$， 得到 $\det(I_n - ww^T)=1 - w^Tw=0$。
 
 \end{document}
