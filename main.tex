@@ -1,9 +1,12 @@
 \documentclass{article}
-\usepackage{ctex}
-\usepackage{xcolor}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{amssymb}
+
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ctex}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{xcolor}
 
 \title{北航研究生 2025 春季矩阵论期末复习}
 \author{GGN\_2015}
@@ -15,7 +18,7 @@
 
 \section{声明}
 
-本答案由学生 GGN\_2015 自制，正确性并无保证。如果出现了谬误，欢迎联系 premierbob@qq.com 更正。本文题目为 2024 春季期末考试试题与考点分析，欢迎同学们一同分享学习的心得体会。本项目的 github 地址为：https://github.com/GGN-2015/matrix-theory-final-exam
+本答案由学生 GGN\_2015 自制，正确性并无保证。如果出现了谬误，欢迎联系 premierbob@qq.com 更正。本文题目为 2024 春季期末考试试题与考点分析，欢迎同学们一同分享学习的心得体会。本项目的 github 地址为：\href{https://github.com/GGN-2015/matrix-theory-final-exam}{https://github.com/GGN-2015/matrix-theory-final-exam}，欢迎 Pull Request。
 
 \newpage
 
@@ -209,5 +212,59 @@
 \par \textbf{答案}：0
 
 \par \textbf{理由}：换位公式对任意 $A_{n\times p}, B_{p\times n}$ 总有关于 $\lambda$ 的两个多项式 $\det(\lambda I_n - AB) \cdot \lambda^p \equiv \det(\lambda I_p - BA) \cdot \lambda^n $。带入 $\lambda = 1$ 得到 $\det(I_n - AB) = \det(I_p - BA)$， 令 $A=w, B=w^T, p=1$， 得到 $\det(I_n - ww^T)=1 - w^Tw=0$。
+
+\subsection{T4}
+
+\par 设 $A=\begin{pmatrix}
+	2 & 1 & 1\\
+	1 & 2 & 1\\
+	1 & 1 & 2
+\end{pmatrix}, x=\begin{pmatrix}
+	1\\0\\1
+\end{pmatrix}$，则 $\|A\|_1=\underline{\phantom{empty\_space}}, \|Ax\|_{\infty}=\underline{\phantom{empty\_space}}, \|A\|_F=\underline{\phantom{empty\_space}}$。
+
+\par \textbf{答案}：$4, 3, 3\sqrt 2$
+
+\par \textbf{理由}：一些常见的范数定义如下：
+
+\begin{tabularx}{\linewidth}{|X|X|X|X|X|} 
+	\hline
+	 & 1-范数 & 2-范数 & F-范数 & $\infty$-范数 \\ 
+	\hline
+	矩阵范数 & 最大列和范数 & 谱半径 & 二次方范数 & 行和范数 \\ 
+	\hline
+	向量范数 & 所有元素绝对值之和 & 二次方范数 & 不存在 & 元素最大绝对值 \\ 
+	\hline
+\end{tabularx}
+
+\par 这个对应关系看起来有些奇怪，但实际上表达出一种“诱导关系”。即向量 1-范数 诱导的算子范数是矩阵 1-范数、向量 2-范数诱导的算子范数是矩阵 2-范数，依此类推。
+
+\subsection{T5}
+
+\par 设 $A\in \mathbb R^{3\times 3}$，特征值 $\lambda=2$ 是三重特征根且只有一个线性无关的特征向量，则 $A$ 的 Jordan 标准型是 \underline{\phantom{empty\_space}}。
+
+\par\textbf{答案}：$\begin{pmatrix}
+	2 & 1 & 0\\
+	0 & 2 & 1\\
+	0 & 0 & 2
+\end{pmatrix}$
+
+\par \textbf{理由}：每个约当小块对应着一个线性无关的一维特征子空间，由于该矩阵只有一个线性无关的特征向量，因此不可能有大于等于两个约当小块。
+
+\subsection{T6}
+
+\par 设 $A=\begin{pmatrix}
+	7 & 0 & 1\\
+	-1 & -5 & i\\
+	0 & 1 & 6i
+\end{pmatrix}$，则 $A$ \underline{\phantom{empty\_space}}（填 “是” 或者 “不是”）单纯矩阵。
+
+\par \textbf{答案}：是
+
+\par \textbf{理由}：单纯阵的定义为可以相似对角化的矩阵，其充要条件是所有约当小块的阶数都为 1。因此，单纯阵的充分条件是，有 $n$ 个互不相同的特征值（因为这些特征值 ，每一个都至少有一个约当小块与之对应）。观察到矩阵的对角线元素比较大，而其他元素比较小，使用盖尔圆盘对矩阵特征值进行估计。
+
+第一行：$|\lambda_1-7|\leq |0| + |1|$，第二行：$|\lambda_2-(-5)|\leq |-1| + |i|$，第三行：$|\lambda_3-6i|\leq |0| + |1|$。这意味着三个盖尔圆盘没有交，因而矩阵有三个互不相同的特征值。
+
+需要注意的是，盖尔圆盘估计对于行和估计与列和估计都是正确的，对于这个问题，使用列和估计则会出现圆盘有交的情况，不利于排除重根。
 
 \end{document}
