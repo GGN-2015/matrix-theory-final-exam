@@ -99,6 +99,14 @@
 
 \par \textbf{答案}:错误
 
-\par \textbf{理由}：方阵可逆当且仅当不存在零特征值。设 $\lambda(A)=\{\lambda_1, \cdots, \lambda_n\}$，则根据特征值的遗传公式 $\lambda(\sin A)=\{\sin \lambda_1, \cdots, \sin \lambda_n\}$。即使 $\lambda_i$ 中没有零，但当某个 $\lambda_i=k\pi\;(k\neq 0)$ 时，$\sin A$ 也不可逆。
+\par \textbf{理由}：$n$ 阶段复方阵可逆当且仅当不存在零特征值。设 $\lambda(A)=\{\lambda_1, \cdots, \lambda_n\}$，则根据特征值的遗传公式 $\lambda(\sin A)=\{\sin \lambda_1, \cdots, \sin \lambda_n\}$。即使 $\lambda_i$ 中没有零，但当某个 $\lambda_i=k\pi\;(k\neq 0)$ 时，$\sin A$ 也不可逆。
+
+\section{T6}
+
+\par 设 $T$ 是 $n$ 维欧氏空间 $V$ 的一个正交变换，则 $T$ 对应的矩阵一定是正交矩阵。
+
+\par \textbf{答案}：正确
+
+\par \textbf{理由}：正交矩阵的定义是 $AA^T=A^TA=I_n$。正交变换的定义是 $\forall x, y\in V, (A(x), A(y))=(x, y)$ 即保内积，即 $(Ax)^T(Ay)=x^T(A^TA)y=x^Ty$，总成立。由于 $x, y$ 的任意性，所以得到 $A^TA=I_n$。
 
 \end{document}
