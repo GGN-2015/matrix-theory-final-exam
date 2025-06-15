@@ -125,7 +125,7 @@
 
 \par \textbf{答案}：正确
 
-\par \textbf{理由}：\textcolor{red}{留坑待补...}
+\par \textbf{理由}：由于 $A$ 与 $B$ 正规且可换，根据同时对角化定理，则存在一个酉矩阵 $Q$ 使得 $Q^{-1}AQ$ 与 $Q^{-1}BA$ 都是对角阵。这说明 $Q^{-1}ABQ = Q^{-1}AQ\times Q^{-1}BQ$ 也是对角阵。因此 $AB$ 能够酉相似对角化，因此 $AB$ 是正规矩阵。
 
 \subsection{T8}
 
@@ -294,5 +294,162 @@
 	1 & 1\\
 	0 & a
 \end{pmatrix}, a\in \mathbb R$，若极限 $\lim_{k\to \infty}A^k$ 存在，则 $a$ 的取值范围是 \underline{\phantom{empty\_space}}。
+
+\par \textbf{答案}：$(-1, 1)$
+
+\par \textbf{理由}：首先若 $a=1$，$A^k$ 显然不收敛。当 $a\neq 1$ 时，矩阵 $A$ 有两个互异的特征值 $\lambda(A)={1, a}$，因此 $A$ 为单纯阵，可以相似对角化为 $P\times \text{diag}(1, a)\times P^{-1}$。于是 $A^k=P\times \text{diag}(1, a^k)\times P^{-1}$，于是当 $a\in(-1, 1)$ 时 $A^k$ 收敛。
+
+\subsection{T9}
+
+\par 设 $A=\begin{pmatrix}
+	1 & 1 & 1\\
+	0 & 1 & 1\\
+	0 & 0 & 1
+\end{pmatrix}$，定义集合 $S_A=\{\sum_{i=1}^\infty a_iA^i|\forall a_i\in \mathbb R, \text{finite\;many\;} a_i\neq 0\}$，则 $S_A$ \underline{\phantom{empty\_space}}（填 “是” 或者 “不是”）线性空间，如不是请给出理由 \underline{\phantom{empty\_space}} 。
+
+\par \textbf{答案}：是
+
+\par \textbf{理由}：不难观察到 $\lambda(A)=\{1, 1, 1\}$，根据凯莱定理（特征多项式一定是矩阵的零化式），则一定有 $(A-I)^3=0$。整理得到：$A^3=3A^2-3A+I$，这说明对任意 $k>3$，$A^k$ 都能写成 $(I, A, A^2)$ 的线性组合，于是有 $S_A$ 次数不超过三次且封闭。
+
+\section{大题}
+
+\subsection{T3 (13分)}
+
+\par 设 $\mathbb R^3$ 中的一组基为 $\alpha_1=(1, 0, -1)^T, \alpha_2=(2, 1, 1)^T, \alpha_3=(1, 1, 1)^T$，对 $\mathbb R^3$ 中任意的向量 $x=k_1\alpha_1 + k_2\alpha_2+k_3\alpha_3, k_j\in\mathbb R, j=1, 2, 3$，定义变换 $T$ 为 $T(x)=k_1T(\alpha_1)+k_2T(\alpha_2)+k_3T(\alpha_3)$，其中 $T(\alpha_1)=(0, 1, 1)^T, T(\alpha_2)=(-1, 1, 0)^T, T(\alpha_3)=(1, 2, 1)^T$ 试求解以下问题：
+
+\begin{enumerate}
+	\item 证明 $T$ 是线性变换；
+	\item 求 $T$ 在 $\alpha_1, \alpha_2, \alpha_3$ 下的矩阵；
+\end{enumerate}
+
+\par \textbf{1.证明}：
+
+只需证明 $T(ax + by)=aT(x)+bT(y)$，不妨设 $y=k'_1\alpha_1+k'_2\alpha_2+k'_3\alpha_3$；
+
+左侧 $=T(ax+by)=T(\sum_{i=1}^3(ak_i + bk'_i)\alpha_i)=\sum_{i=1}^3(ak_i + bk'_i)T(\alpha_i)=a\sum_{i=1}^3k_iT(\alpha_i)+b\sum_{i=1}^3 k'_iT(\alpha_i)=$ 右侧
+
+\par \textbf{2.解}
+
+换基公式：$T(\alpha_1, \alpha_2, \alpha_3)=(\alpha_1, \alpha_2, \alpha_3) M(T)$，其中 $M(T)$ 是 $T$ 在基 $\alpha_1, \alpha_2, \alpha_3$ 下的矩阵。
+
+首先，$T(\alpha_1)=-\alpha_2+2\alpha_3$，$T(\alpha_2)=\alpha_1-3\alpha_2+4\alpha_3$， $T(\alpha_3)=\alpha_1-2\alpha_2+4\alpha_3$
+
+于是 $M(T)=\begin{pmatrix}
+	0 & 1 & 1\\
+	-1 & -3 & -2\\
+	2 & 4 & 4
+\end{pmatrix}$
+
+\subsection{T4 (13分)}
+
+\par 设 $A=\begin{pmatrix}
+	1 & 4 & 2\\
+	0 & -3 & 4\\
+	0 & 4 & 3
+\end{pmatrix}$
+
+\begin{enumerate}
+	\item 求 $A$ 的谱分解；
+	\item 计算 $A^{100}$ （用谱阵表示即可）；
+\end{enumerate}
+
+\par \textbf{1.解}
+
+$A-I=\begin{pmatrix}
+	0 & 4 & 2\\
+	0 & -4 & 4\\
+	0 & 4 & 2
+\end{pmatrix}$ 这说明 $1$ 是 $A$ 的特征值，高低分解得到
+
+$(A-I)=\begin{pmatrix}
+	1 & 0\\
+	0 & 1\\
+	1 & 0
+\end{pmatrix} \times \begin{pmatrix}
+	0 & 4 & 2\\
+	0 & -4 & 4
+\end{pmatrix}$
+
+我们交换高地阵，得到一个与 $(A-I)$ 具有相同非零特征值的矩阵
+
+$ \begin{pmatrix}
+	0 & 4 & 2\\
+	0 & -4 & 4
+\end{pmatrix}\times \begin{pmatrix}
+1 & 0\\
+0 & 1\\
+1 & 0
+\end{pmatrix}=\begin{pmatrix}
+	2 & 4 \\
+	4 & -4
+\end{pmatrix}$ 解得该矩阵的特征值为 $\{-6, 4\}$
+
+因此 $\lambda(A-I)=\{-6, 4 0\}$，因此 $\lambda(A)=\{-5, 5, 1\}$。不妨设 $A=(-5)\cdot G_1 + 5\cdot G_2 + 1\cdot G_3$ 是 $A$ 的谱分解：
+
+解得：$G_1=\begin{pmatrix}
+	0 & -\frac{2}{5} & \frac{1}{5}\\
+	0 & \frac{4}{5} & -\frac{2}{5}\\
+	0 & -\frac{2}{5} & \frac{1}{5}
+\end{pmatrix}, G_2=\begin{pmatrix}
+	0 & \frac{2}{5} & \frac{4}{5}\\
+	0 & \frac{1}{5} & \frac{2}{5}\\
+	0 & \frac{2}{5} & \frac{4}{5}
+\end{pmatrix}, G_3=\begin{pmatrix}
+	1 & 0 & -1\\
+	0 & 0 & 0\\
+	0 & 0 & 0
+\end{pmatrix}$
+
+\par \textbf{2.解}
+
+根据 $G_1, G_2, G_3$ 的摄影性与正交性，可得： $A^{100}=(-5)^{100}G_1+5^{100}G_2 + G_3$
+
+\subsection{T5 (13分)}
+
+\par 已知矩阵 $A=\begin{pmatrix}
+	-1 & 0 & 1\\
+	1 & 2 & 0\\
+	-4 & 0 & 3
+\end{pmatrix}$，试求解以下问题：
+
+\begin{enumerate}
+	\item 求 $A$ 的 Jordan 标准型；
+	\item 求矩阵的指数函数 $e^{At}$；
+\end{enumerate}
+
+\par \textbf{1.解}
+
+$A-I=\begin{pmatrix}
+	-2 & 0 & 1\\
+	1 & 1 & 0\\
+	-4 & 0 & 2
+\end{pmatrix}$，观察到第一行和第三行有倍数关系，因而矩阵降秩，于是 $1$ 是 $A$ 的特征值。为了进一步求解特征值，对 $A-I$ 进行高低分解：
+
+$A-I=\begin{pmatrix}
+	1 & 0\\
+	0 & 1\\
+	2 & 0
+\end{pmatrix}\times \begin{pmatrix}
+	-2 & 0 & 1\\
+	1 & 1 & 0
+\end{pmatrix}$ 由于我们的目的是计算非零特征值，所以我们交换高低阵：
+
+$\begin{pmatrix}
+	-2 & 0 & 1\\
+	1 & 1 & 0
+\end{pmatrix} \times \begin{pmatrix}
+1 & 0\\
+0 & 1\\
+2 & 0
+\end{pmatrix}=\begin{pmatrix}
+	0 & 0\\
+	1 & 1
+\end{pmatrix}$ 于是说明 $\lambda(A-I)=\{0, 0, 1\}$，于是 $\lambda(A)=\{1, 1, 2\}$。这里我们发现有两个特征值 $1$，我们需要验证 $1$ 对应的特征向量空间维数,发现只有一维，这说明 $A$ 有一个二阶段约当块。
+
+$J(A)=\begin{pmatrix}
+	1 & 1 & 0\\
+	0 & 1 & 0\\
+	0 & 0 & 2
+\end{pmatrix}$ 是 $A$ 的约当标准型。
 
 \end{document}
