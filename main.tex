@@ -3,12 +3,18 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{ctex}
+\usepackage{datetime2}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{hyperref}
+\usepackage{shellesc}
 \usepackage{tabularx}
 \usepackage{xcolor}
 
-\title{北航研究生 2025 春季矩阵论期末复习}
+\newcommand{\getcompiletimestamp}{
+	编译时间：\DTMnow
+}
+
+\title{2024 秋 (研) 矩阵理论-I\\期末考试试题整理}
 \author{GGN\_2015}
 \date{}
 
@@ -18,7 +24,9 @@
 
 \section{声明}
 
-本答案由学生 GGN\_2015 自制，正确性并无保证.如果出现了谬误，欢迎联系 premierbob@qq.com 更正.本文题目为 2024 春季期末考试试题与考点分析，欢迎同学们一同分享学习的心得体会.本项目的 github 地址为：\href{https://github.com/GGN-2015/matrix-theory-final-exam}{https://github.com/GGN-2015/matrix-theory-final-exam}，欢迎 Pull Request.
+本答案由学生 GGN\_2015 自制\footnote{\getcompiletimestamp}，正确性并无保证.如果出现了谬误，欢迎联系 premierbob@qq.com 更正.本文题目为 2024 春季期末考试试题与考点分析，欢迎同学们一同分享学习的心得体会.本项目的 github 地址为：\href{https://github.com/GGN-2015/matrix-theory-final-exam}{https://github.com/GGN-2015/matrix-theory-final-exam}，欢迎 Pull Request. 另外，项目 \href{https://github.com/GGN-2015/2025-spring-matrix-theory}{https://github.com/GGN-2015/2025-spring-matrix-theory} 中公开了本文作者的全部课程笔记。
+
+
 
 \newpage
 
@@ -34,7 +42,13 @@
 
 \par \textbf{答案}：错误
 
-\par \textbf{理由}：两个奇异矩阵（$\det(A)=0, \det(b)=0$）的加和可能非奇异（$\det(A+B)\neq 0$），因此在 $V$ 上的普通矩阵加法，不满足运算的封闭性.
+\par \textbf{理由}：两个奇异矩阵（$\det(A)=0, \det(b)=0$）的加和可能非奇异（$\det(A+B)\neq 0$），因此在 $V$ 上的普通矩阵加法，不满足运算的封闭性. 一个具体的例子：$A=\begin{pmatrix}
+	1 & 0\\
+	0 & 0
+\end{pmatrix}, B = \begin{pmatrix}
+	0 & 0\\
+	0 & 1
+\end{pmatrix}, A+B=I$.
 
 \subsection{T2}
 
